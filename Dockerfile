@@ -1,6 +1,7 @@
-From Node
 FROM node:18.12.1
-ENV NODE_ENV=production
-RUN mkdir -p /home/app
-COPY . /home/app
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install debug 
+COPY . .
+EXPOSE 8080
 CMD [ "node", "server.js" ]
